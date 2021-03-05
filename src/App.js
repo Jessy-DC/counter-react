@@ -1,16 +1,25 @@
 import './App.css';
-import {Counter} from './Components/Counter'
 import './Style/Counter.css'
 import {IncrementDecrement} from "./Components/IncrementDecrement";
+import {useState} from 'react'
 
 function App() {
+
+   const [counter, setCounter] = useState(0)
+
+   const changeCounter = (value) => {
+       setCounter(value)
+   }
+
   return (
     <div>
       <div className="counter">
-        <Counter counterValue={0} />
+          <div>
+              <p>{counter}</p>
+          </div>
       </div>
       <div>
-        <IncrementDecrement counterValue={0} />
+        <IncrementDecrement counter={counter} changeCounter={changeCounter} />
       </div>
     </div>
   );
